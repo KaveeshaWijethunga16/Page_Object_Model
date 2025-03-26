@@ -20,4 +20,10 @@ public class RegisterSuccessPage {
 
 
     }
+
+    By signInText_loc = By.linkText("sign-in");
+
+    public void selectSignInMenu() {
+        driver.findElement(signInText_loc).click();
+    }
 }

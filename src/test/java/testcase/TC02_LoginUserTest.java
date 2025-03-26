@@ -5,14 +5,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.HomePage;
-import pages.LoginPage;
-import pages.RegisterPage;
-import pages.RegisterSuccessPage;
+import pages.*;
 
 import java.time.Duration;
 
-public class TC01_RegisterUserTest {
+public class TC02_LoginUserTest {
 
     WebDriver driver;
 
@@ -25,8 +22,11 @@ public class TC01_RegisterUserTest {
         driver.get("https://demo.guru99.com/test/newtours/index.php");
 
     }
+
     @Test
-    public void TC01() {
+    public void TC02() {
+        HomePage homePage = new HomePage(driver);
+        homePage.selectRegisterMenu();
 
 
         RegisterPage registerPage = new RegisterPage(driver);
@@ -40,15 +40,28 @@ public class TC01_RegisterUserTest {
         registerPage.setSubmitbtn_loc();
 
         RegisterSuccessPage successTxt = new RegisterSuccessPage(driver);
-        String actualText  = successTxt.successText();
+        String actualText = successTxt.successText();
         Assert.assertTrue(actualText.contains("Dear"), "Registration attempt failed");
 
+        RegisterSuccessPage signInTxt = new RegisterSuccessPage(driver);
+        signInTxt.selectSignInMenu();
+
+
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.setUsername_loc("Hareen");
+        loginPage.setPassword_loc("111");
+        loginPage.setSubmit_loc();
+
+        RegisterLoginSuccessPage successText = new RegisterLoginSuccessPage(driver);
+        String actualSuccessTxt = successText.LoginSuccessText();
+        Assert.assertTrue(actualSuccessTxt.contains("Thank you"), "Login attempt failed");
+
+
     }
-
-
 
     public void closeBrowser() {
         driver.quit();
     }
+
 
 }

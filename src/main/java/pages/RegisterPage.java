@@ -16,14 +16,13 @@ public class RegisterPage {
 
 
 
-    By firstname_loc = By.xpath("//input[@name='firstName']");
-    By lastname_loc  =  By.xpath("//input[@name='lastName']");
-    By phone_loc  =By.xpath("//input[@name='phone']");
-    By username_loc =By.xpath("//input[@id='userName']");
+    By firstname_loc = By.name("firstName");
+    By lastname_loc = By.xpath("//input[@name='lastName']");
+    By email_loc = By.xpath("//input[@id='userName']");
     By country_loc = By.xpath("//select[@name='country']");
-    By email_loc = By.xpath("//input[@id='email']");
-    By password_loc =By.name("password");
-    By confrimPassword_loc = By.name("confirmPassword");
+    By username_loc = By.xpath("//input[@id='email']");
+    By password_loc = By.name("password");
+    By confrimPassword_loc = By.xpath("//input[@name='confirmPassword']");
     By submitbtn_loc = By.xpath("//input[@name='submit']");
 
 
@@ -35,23 +34,20 @@ public class RegisterPage {
         driver.findElement(lastname_loc).sendKeys(lastname);
     }
 
-    public void setPhone_loc(String phone) {
-        driver.findElement(phone_loc).sendKeys(phone);
+    public void setEmail_loc(String email) {
+        driver.findElement(email_loc).sendKeys(email);
     }
-     public void setUsername_loc(String username) {
-        driver.findElement(username_loc).sendKeys(username);
-     }
 
-     public void setCountry_loc(String country) {
+
+     public void setCountry_loc() {
          WebElement countrySelect_element = driver.findElement(country_loc);
          Select dropDownCountrySelect = new Select(countrySelect_element);
-         dropDownCountrySelect.selectByVisibleText(country);
+         dropDownCountrySelect.selectByIndex(2);
      }
 
-     public void setEmail_loc(String email) {
-        driver.findElement(email_loc).sendKeys(email);
-     }
-
+    public void setUsername_loc(String username) {
+        driver.findElement(username_loc).sendKeys(username);
+    }
      public void setPassword_loc(String password) {
         driver.findElement(password_loc).sendKeys(password);
      }

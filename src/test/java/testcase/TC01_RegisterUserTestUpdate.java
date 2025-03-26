@@ -1,18 +1,16 @@
 package testcase;
 
+import Packages.NewToursCommonFunction;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.HomePage;
-import pages.LoginPage;
-import pages.RegisterPage;
-import pages.RegisterSuccessPage;
+import pages.*;
 
 import java.time.Duration;
 
-public class TC01_RegisterUserTest {
+public class TC01_RegisterUserTestUpdate {
 
     WebDriver driver;
 
@@ -28,20 +26,11 @@ public class TC01_RegisterUserTest {
     @Test
     public void TC01() {
 
-
-        RegisterPage registerPage = new RegisterPage(driver);
-        registerPage.setFirstname_loc("Hareen");
-        registerPage.setLastname_loc("Wijethunga");
-        registerPage.setEmail_loc("wijethunga@gmail.com");
-        registerPage.setCountry_loc();
-        registerPage.setUsername_loc("Hareen");
-        registerPage.setPassword_loc("111");
-        registerPage.setConfirmPassword_loc("111");
-        registerPage.setSubmitbtn_loc();
-
-        RegisterSuccessPage successTxt = new RegisterSuccessPage(driver);
-        String actualText  = successTxt.successText();
+        NewToursCommonFunction newToursCommonFunction = new NewToursCommonFunction(driver);
+        String actualText = newToursCommonFunction.registerUser("kaveesha","Wijethunga","kavee@gmail.com","kaveesha","111","111");
         Assert.assertTrue(actualText.contains("Dear"), "Registration attempt failed");
+
+
 
     }
 
