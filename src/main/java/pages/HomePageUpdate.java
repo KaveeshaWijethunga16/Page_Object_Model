@@ -1,10 +1,8 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
 public class HomePageUpdate {
@@ -27,8 +25,9 @@ public class HomePageUpdate {
     public WebElement registerbtn_ele;
 
 
-    public void selectRegisterMenu(){
+    public RegisterPageUpdate selectRegisterMenu(){
         registerbtn_ele.click();
+        return new RegisterPageUpdate(driver);
     }
 
 }
