@@ -11,21 +11,11 @@ import pages.*;
 
 import java.time.Duration;
 
-public class TC01_RegisterUserTestUpdate {
+public class TC01_RegisterUserTestUpdate extends BaseTest {
 
-    WebDriver driver;
 
-    @BeforeMethod
-    public void OpenLinkTestPage() {
-
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.get("https://demo.guru99.com/test/newtours/index.php");
-
-    }
     @Test
-    public void TC01() {
+    public void TC01() throws InterruptedException {
 
 //        NewToursCommonFunction newToursCommonFunction = new NewToursCommonFunction(driver);
 //        String actualText = newToursCommonFunction.registerUser("kaveesha","Wijethunga","kavee@gmail.com","kaveesha","111","111");
@@ -52,12 +42,10 @@ public class TC01_RegisterUserTestUpdate {
         Assert.assertTrue(actualText.contains("Dear"), "Registration attempt failed");
 
 
+
     }
 
 
-@AfterMethod
-    public void closeBrowser() {
-        driver.quit();
-    }
+
 
 }

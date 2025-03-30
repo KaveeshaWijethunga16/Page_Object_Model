@@ -22,15 +22,15 @@ public class RegisterSuccessPageUpdate {
      public WebElement successText_ele;
 
     public String successText() {
-        String successTextele =  successText_ele.getText();
-        return successTextele;
+        return successText_ele.getText();
 
 
     }
+    @FindBy(linkText = "sign-in")
+    public WebElement signInText_ele;
 
-//    By signInText_loc = By.linkText("sign-in");
-//
-//    public void selectSignInMenu() {
-//        driver.findElement(signInText_loc).click();
-//    }
+    public  LoginPageUpdated selectSignInMenu() {
+        signInText_ele.click();
+        return new LoginPageUpdated(driver);
+    }
 }

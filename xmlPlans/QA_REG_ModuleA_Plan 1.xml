@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
-<suite name="QA_Reg_ModuleA_Plan1">
+<suite name="QA_Reg_ModuleA_Plan1" parallel="false">
 
-
-    <test name="TC001_RegisterUserTestUpdated">
+    <test name="User Registration and Login Test">
         <classes>
+
             <class name="testcase.TC01_RegisterUserTestUpdate"/>
+            <class name="testcase.TC02_LoginUserTestUpdated"/>
         </classes>
     </test>
-
-
 
 </suite>

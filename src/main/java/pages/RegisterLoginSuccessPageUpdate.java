@@ -7,6 +7,7 @@ public class RegisterLoginSuccessPageUpdate {
     WebDriver driver;
 
     public RegisterLoginSuccessPageUpdate(WebDriver driver) {
+
         this.driver = driver;
     }
 
@@ -16,4 +17,6 @@ public class RegisterLoginSuccessPageUpdate {
         String ThankUtext = driver.findElement(LoginSuccessTxt_loc).getText();
         return ThankUtext;
     }
+
+
 }
